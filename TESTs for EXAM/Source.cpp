@@ -21,6 +21,10 @@ int main()
 		char C_string_6[5] = { 'J', 'O', 'P', 'A', '\0' };
 		//char* C_string_5 = "JOPA"; //Error
 		const char* C_string_7 = "JOPA";
+		//const char const*  C_string_7 = "JOPA";
+		//const char * const C_string_7 = "JOPA";
+
+
 
 		//char* C_string_array[]{ "TEXT1", "TEXT2", "TEXT3" };
 		//const char* C_string_array[]{ "TEXT1", "TEXT2", "TEXT3" };
