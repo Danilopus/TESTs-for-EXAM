@@ -123,7 +123,7 @@ void Strings_and_char_arrays_Q124()
 
 	std::string STD_string_4[] = { "J", "O", "P" , "A" };
 	std::string STD_string_5[5] = { "J", "O", "P" , "A" };
-
+	//
 	const int Size_Array_of_standart_strings = 3;
 	//std::string* Array_of_standart_strings{ STD_string_1, STD_string_2, STD_string_3, STD_string_4, STD_string_5 }; //Error
 	//std::string* Array_of_standart_strings = new std::string[]{ STD_string_1, STD_string_2, STD_string_3, STD_string_4, STD_string_5 }; //Error
