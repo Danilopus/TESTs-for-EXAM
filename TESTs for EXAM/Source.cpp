@@ -101,7 +101,7 @@ void Strings_and_char_arrays_Q124()
 			//std::cout << (*(Array_of_C_strings+II))+i;
 			std::cout << *((*(Array_of_C_strings + II)) + i);
 
-
+5
 		std::cout << "\n" << "C_string_" << II+1<<" in pointer loop" << ":\n";
 		for (int i = 0; i < strlen(Array_of_C_strings[II]); i++)
 			std::cout << *(Array_of_C_strings[II] + i);
