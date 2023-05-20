@@ -1,5 +1,7 @@
 #include <iostream>
-//#include <string>
+#include <fstream>
+#include <string> // первая нерабочая комманда без библиотеки: getline
+
 
 void Strings_and_char_arrays_Q124()
 {
@@ -13,7 +15,8 @@ void Strings_and_char_arrays_Q124()
 	char C_string_5_2[] = { 'J', 'O', 'P', 'A' };
 	char C_string_6[5] = { 'J', 'O', 'P', 'A', '\0' };
 	//char* C_string_5 = "JOPA"; //Error
-	const char* const C_string_7 = "JOPA";
+	//const char* const C_string_7 = "JOPA";
+	const char* C_string_7 = "JOPA";
 	//const char const*  C_string_7 = "JOPA";
 	//const char * const C_string_7 = "JOPA";
 
@@ -101,7 +104,7 @@ void Strings_and_char_arrays_Q124()
 			//std::cout << (*(Array_of_C_strings+II))+i;
 			std::cout << *((*(Array_of_C_strings + II)) + i);
 
-5
+0
 		std::cout << "\n" << "C_string_" << II+1<<" in pointer loop" << ":\n";
 		for (int i = 0; i < strlen(Array_of_C_strings[II]); i++)
 			std::cout << *(Array_of_C_strings[II] + i);
@@ -236,9 +239,105 @@ void Structures_Q130()
 
 }
 
+void Files()
+{
+
+
+	std::ifstream File_Stream("Test_file.txt", std::ios::in);// , ;
+	File_Stream.open("Test_file.txt");
+	if (File_Stream.is_open())
+	{
+		std::cout << "\n1 open";
+		File_Stream.open("Test_file.txt");
+		if (File_Stream.is_open())
+		{
+			std::cout << "\n2 open";
+			
+			File_Stream.open("Test_file.txt");
+			if (File_Stream.is_open())
+			{
+				std::cout << "\n3 open";
+			}
+		}
+	}
+
+	std::fstream File_Stream_IO("Test_file_2.txt", std::ios::in | std::ios::out);// , ;
+	//File_Stream.op
+	//std::fstream File_Stream_IO("Test_file_2.txt",std::ios::out);// , ;
+
+	char symbol;
+	std::string read_buffer;
+	while (File_Stream_IO.get(symbol))
+	{
+		read_buffer += symbol;
+	}
+
+	std::string tmp_str;
+	while (!File_Stream_IO.eof())
+	{
+		tmp_str = "";
+		File_Stream_IO >> tmp_str;
+	
+		read_buffer += tmp_str;
+
+	}
+
+	while (std::getline(File_Stream_IO, tmp_str))
+	{
+		read_buffer += tmp_str + '\n';
+	}
+
+
+	std::string insertion = "INSERTION";
+	std::fstream file_object("Test_file_2.txt", std::ios::out);// , ;
+	int file_length = file_object.tellg();
+	file_object.seekg(file_length / 2, std::ios::beg);
+	file_object << insertion << '\n';
+	file_object.close();
+}
+
+void Strings()
+{
+	std::string str;
+	std::cout << "str: " << str;
+	//char* ptr_char1{ "TEXT" }; //error
+	char Cstr1[]{"TEXT"};
+	char* Cstr1_ptr = Cstr1;
+
+	char* Cstr3_ptr = new char[5]{ "TEXT" };
+
+	//char* Cstr_array[]{ "text1","text2", "text3" ,"text2", "text3" };
+	const char* Cstr_array[]{ "text1","text2", "text3" ,"text2", "text3" };
+
+	const char** Cstr_array_ptr = Cstr_array;
+	//char** Cstr_array[]= new char[3][5]{ "text1","text2", "text3" };
+	//const char** Cstr_array2 { "text1","text2", "text3" };
+	const char* Cstr2 {"text1"};
+
+	const char* ptr_char1{ "TEXT" };
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout<<"\n"<<"ptr_char1"<< ptr_char1++;
+		std::cout << "Cstr2" << Cstr2++;
+
+		//std::cout << "\n" << "Cstr_array" << Cstr_array++;
+		std::cout << "\n" << "Cstr_array_ptr" << *(Cstr_array_ptr++);
+
+		//std::cout << "\n" << "Cstr1" << Cstr1++;
+		std::cout << "\n" << "Cstr1_ptr" << *(Cstr1_ptr++);
+		std::cout << "\n" << "Cstr3_ptr" << Cstr3_ptr++;
+		std::cout << "\n\n"<<i;
+
+	}
+
+	char* cstr_ptr_5 = new char[5];
+}
+
 int main()
 {
-	Structures_Q130();
+	//Structures_Q130();
+	//Files();
+	Strings();
 
 
 	std::cout << "\n\n";
